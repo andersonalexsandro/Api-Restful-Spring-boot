@@ -1,13 +1,11 @@
 package med.voll.api.model;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import med.voll.api.dto.EnderecoDTO;
-import med.voll.api.dto.EnderecoUpdateDTO;
+import med.voll.api.dto.endereco.EnderecoDTO;
+import med.voll.api.dto.endereco.EnderecoUpdateDTO;
 
 @Embeddable
 @Data

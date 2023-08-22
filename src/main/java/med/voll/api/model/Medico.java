@@ -2,9 +2,8 @@ package med.voll.api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import med.voll.api.dto.EnderecoDTO;
-import med.voll.api.dto.MedicoDTO;
-import med.voll.api.dto.MedicoUpdateDTO;
+import med.voll.api.dto.medico.MedicoDTO;
+import med.voll.api.dto.medico.MedicoUpdateDTO;
 
 @Entity
 @Table(name = "medicos")
