@@ -9,16 +9,13 @@ import med.voll.api.model.Endereco;
 import med.voll.api.model.Especialidade;
 
 public record MedicoDTO(
-        @NotNull
         @NotBlank
         String nome,
-        @NotNull
         @NotBlank
         @Email
         String email,
         @NotBlank
         String telefone,
-        @NotNull
         @NotBlank
         @Pattern(regexp = "\\d{4,6}")
         String crm,

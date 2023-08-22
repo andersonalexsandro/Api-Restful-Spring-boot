@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.dto.ListagemMedicosDTO;
 import med.voll.api.dto.MedicoDTO;
+import med.voll.api.dto.MedicoUpdateDTO;
 import med.voll.api.model.Medico;
 import med.voll.api.repository.MedicoRepository;
 import med.voll.api.useful.EntityMapper;
@@ -35,8 +36,14 @@ public class MedicoController {
     }
 
     @GetMapping
-    public Page<ListagemMedicosDTO> getMedicos(@PageableDefault(size = 10, sort = {"nome"}) Pageable page){
+    public Page<ListagemMedicosDTO> getList(@PageableDefault(size = 10, sort = {"nome"}) Pageable page){
         return medicoRepository.findAll(page).map(ListagemMedicosDTO::new);
     }
 
+    @Transactional
+    @PutMapping
+    public void update(@RequestBody @Valid MedicoUpdateDTO medicoDTO){
+        Medico medico = medicoRepository.getReferenceById(medicoDTO.id());
+        medico.update(medicoDTO);
+    }
 }

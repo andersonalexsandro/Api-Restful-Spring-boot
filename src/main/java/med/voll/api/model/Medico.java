@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import med.voll.api.dto.EnderecoDTO;
 import med.voll.api.dto.MedicoDTO;
+import med.voll.api.dto.MedicoUpdateDTO;
 
 @Entity
 @Table(name = "medicos")
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -22,14 +23,23 @@ public class Medico {
     private Especialidade especialidade;
 
     @Embedded
-    private EnderecoDTO enderecoDTO;
+    private Endereco endereco;
 
     public Medico(MedicoDTO medicoDTO) {
         this.nome = medicoDTO.nome();
         this.email = medicoDTO.email();
         this.crm = medicoDTO.crm();
         this.especialidade = medicoDTO.especialidade();
-        this.enderecoDTO = medicoDTO.endereco();
+        this.endereco = new Endereco(medicoDTO.endereco());
         this.telefone = medicoDTO.telefone();
+    }
+
+    public void update(MedicoUpdateDTO medicoUpdateDTO){
+        if(medicoUpdateDTO.nome() != null) setNome(medicoUpdateDTO.nome());
+        if(medicoUpdateDTO.telefone() != null) setTelefone(medicoUpdateDTO.telefone());
+        if(medicoUpdateDTO.especialidade() != null) setEspecialidade(medicoUpdateDTO.especialidade());
+        if(medicoUpdateDTO.crm() != null) setCrm(medicoUpdateDTO.crm());
+        if(medicoUpdateDTO.email() != null) setEmail(medicoUpdateDTO.email());
+        if(medicoUpdateDTO.endereco() != null) this.endereco.update(medicoUpdateDTO.endereco());
     }
 }
