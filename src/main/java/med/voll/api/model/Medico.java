@@ -17,6 +17,7 @@ public class Medico {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean ativo;
     private String nome, email, crm, telefone;
 
     @Enumerated(EnumType.STRING)
@@ -26,6 +27,7 @@ public class Medico {
     private Endereco endereco;
 
     public Medico(MedicoDTO medicoDTO) {
+        this.ativo = true;
         this.nome = medicoDTO.nome();
         this.email = medicoDTO.email();
         this.crm = medicoDTO.crm();
@@ -41,5 +43,9 @@ public class Medico {
         if(medicoUpdateDTO.crm() != null) setCrm(medicoUpdateDTO.crm());
         if(medicoUpdateDTO.email() != null) setEmail(medicoUpdateDTO.email());
         if(medicoUpdateDTO.endereco() != null) this.endereco.update(medicoUpdateDTO.endereco());
+    }
+
+    public void excluir() {
+        setAtivo(false);
     }
 }
