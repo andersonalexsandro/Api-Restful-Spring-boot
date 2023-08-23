@@ -1,9 +1,13 @@
 package med.voll.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import med.voll.api.dto.medico.MedicoDTO;
 import med.voll.api.dto.medico.MedicoUpdateDTO;
+import org.hibernate.annotations.Cascade;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "medicos")
@@ -12,7 +16,7 @@ import med.voll.api.dto.medico.MedicoUpdateDTO;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 @ToString
-public class Medico {
+public class Medico implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +27,7 @@ public class Medico {
     private Especialidade especialidade;
 
     @Embedded
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Endereco endereco;
 
     public Medico(MedicoDTO medicoDTO) {
