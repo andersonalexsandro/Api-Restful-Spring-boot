@@ -1,10 +1,9 @@
-package med.voll.api.dto.endereco;
+package med.voll.api.domain.dto.endereco;
 
-import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import med.voll.api.model.Endereco;
+import med.voll.api.domain.model.Endereco;
 
 public record EnderecoDTO(
         @NotBlank

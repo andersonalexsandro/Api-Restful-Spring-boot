@@ -2,19 +2,17 @@ package med.voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med.voll.api.dto.medico.ListagemMedicosDTO;
-import med.voll.api.dto.medico.MedicoDTO;
-import med.voll.api.dto.medico.MedicoUpdateDTO;
-import med.voll.api.model.Medico;
-import med.voll.api.repository.MedicoRepository;
-import med.voll.api.useful.EntityMapper;
+import med.voll.api.domain.dto.medico.ListagemMedicosDTO;
+import med.voll.api.domain.dto.medico.MedicoDTO;
+import med.voll.api.domain.dto.medico.MedicoUpdateDTO;
+import med.voll.api.domain.model.Medico;
+import med.voll.api.domain.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
@@ -25,9 +23,6 @@ public class MedicoController {
 
     @Autowired
     private MedicoRepository medicoRepository;
-
-    @Autowired
-    private EntityMapper entityMapper;
 
     @Transactional
     @PostMapping

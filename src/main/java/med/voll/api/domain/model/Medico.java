@@ -1,11 +1,10 @@
-package med.voll.api.model;
+package med.voll.api.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-import med.voll.api.dto.medico.MedicoDTO;
-import med.voll.api.dto.medico.MedicoUpdateDTO;
-import org.hibernate.annotations.Cascade;
+import med.voll.api.domain.dto.medico.MedicoDTO;
+import med.voll.api.domain.dto.medico.MedicoUpdateDTO;
 
 import java.io.Serializable;
 

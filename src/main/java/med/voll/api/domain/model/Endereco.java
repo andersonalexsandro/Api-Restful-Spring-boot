@@ -1,11 +1,11 @@
-package med.voll.api.model;
+package med.voll.api.domain.model;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import med.voll.api.dto.endereco.EnderecoDTO;
-import med.voll.api.dto.endereco.EnderecoUpdateDTO;
+import med.voll.api.domain.dto.endereco.EnderecoDTO;
+import med.voll.api.domain.dto.endereco.EnderecoUpdateDTO;
 
 @Embeddable
 @Data
