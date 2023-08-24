@@ -29,13 +29,6 @@ public class SecutiryConfiguration{
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
-        System.out.println();
-        System.out.println();
-        String coded = bc.encode("123456");
-        System.out.println();
-        System.out.println();
-        System.out.println(coded);
         return new BCryptPasswordEncoder();
     }
 }
